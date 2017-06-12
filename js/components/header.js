@@ -1,6 +1,6 @@
 /*global $, update, state*/
 const Header = (update) => {
-    const header = $("<header></header>"),
+    const header = $("<header id='header'></header>"),
         title = $("<h1>GAS FINDER</h1>"),
         icon = $('<i class="fa fa-chevron-left"></i>'),
         prevIcon = $('<a class="prevIcon" href="#"></a>');
