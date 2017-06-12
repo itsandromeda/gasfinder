@@ -142,10 +142,14 @@ const StationDetails = (update) => {
                 map: map,
                 title: state.selectedStation.name,
                 animation: google.maps.Animation.BOUNCE
+            }),
+            infowindow = new google.maps.InfoWindow({
+                content: '<b>' + state.selectedStation.name + '</b><br><p>' + 
+                            state.selectedStation.address + '</p>'
             });
 
         marker.addListener('click', function () {
-            alert('hi');
+            infowindow.open(map, marker);
         });
     });
     return station;
