@@ -12,6 +12,65 @@ const stationList = (station, update) => {
     detalils.append(district);
     boxStation.append(detalils);
     boxStation.append(icon);
+    boxStation.on('click', () => {
+        state.selectedStation = station;
+        update();
+        $('.prevIcon').show();
+    });
 
     return boxStation;
 };
+
+const StationDetails = (update) => {
+    const station = $('<section class="station-data"></section>'),
+        mapWrap = $('<div id="map"></div>'),
+        detailsWrap = $('<div class="station-wrap"></div>'),
+        details = $('<div class="details"></div>'),
+        gasWrap = $('<div class="gas-wrap"></div>'),
+        distanceWrap = $('<div class="distance"></div>'),
+        h3 = $('<h3>' + state.selectedStation.name + '</h3>'),
+        hr = $('<hr>'),
+        address = $('<p>' + state.selectedStation.address + '</p>');
+
+    station.append(mapWrap);
+    station.append(detailsWrap);
+    detailsWrap.append(h3);
+    detailsWrap.append(hr);
+    detailsWrap.append(address);
+
+    state.selectedStation.products.forEach((e) => {
+        const gasType = $('<div class="gas-type">' + e + '</div>');
+        gasWrap.append(gasType);
+    });
+
+    details.append(gasWrap);
+    details.append(distanceWrap);
+    detailsWrap.append(details);
+    station.append(detailsWrap);
+
+    var latitud,
+        longitud,
+        position = {
+            lat: state.selectedStation.lat,
+            lng: state.selectedStation.long
+        };
+
+    $(_ => {
+        const map = new google.maps.Map(document.getElementById('map'), {
+                center: position,
+                zoom: 18,
+                mapTypeControl: false
+            }),
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: state.selectedStation.name,
+                animation: google.maps.Animation.BOUNCE
+            });
+        
+        marker.addListener('click', function () {
+            alert('hi');
+        });
+    });
+    return station;
+}

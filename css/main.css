@@ -100,3 +100,52 @@ input::-webkit-input-placeholder {
 .fa-map:hover {
     color: #000;
 }
+
+
+/*
+    =============
+    MAP
+    =============
+*/
+
+#map {
+    height: 55vh;
+    width: 100%;
+}
+
+.station-data {
+    color: #333;
+}
+
+.station-wrap {
+    padding: 1.8em;
+}
+
+.station-wrap hr {
+    margin: 10px 0;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gas-wrap {
+    width: 50%;
+}
+
+.gas-type {
+    background-color: #e0e0e0;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 1em;
+}
+
+.distance {
+    width: 50%;
+}
