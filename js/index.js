@@ -1,27 +1,29 @@
-'use strict';
-
+/*global $, alert, getJSON, StationDetails, ListStation, Header*/
 const render = (root) => {
-  root.empty();
-  const wrapper = $('<div class="wrapper"></div>');
-  wrapper.append(Header(_ => render(root)));
-  root.append(wrapper);
-}
+    root.empty();
+    const wrapper = $('<div class="wrapper"></div>');
+    wrapper.append(Header(_ => render(root)));
 
-const state = {
-  stations: null,
-  selectedStation: null
+    root.append(wrapper);
 };
 
-$( _ => {
+const state = {
+    stations: null,
+    selectedStation: null
+};
 
-  getJSON('stations.json', (err, json) => {
+$(_ => {
 
-    if (err) { return alert(err.message);}
+    getJSON('stations.json', (err, json) => {
 
-    state.stations = json;
+        if (err) {
+            return alert(err.message);
+        }
 
-    const root = $('.root');
-    render(root);
-  });
+        state.stations = json;
+
+        const root = $('.root');
+        render(root);
+    });
 
 });

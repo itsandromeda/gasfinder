@@ -1,11 +1,20 @@
-'use strict';
-
+/*global $, update, state*/
 const Header = (update) => {
-  const header = $("<header></header>");
-  const title = $("<span>Gas Finder</span>");
-  const icon = $('<i class="fa fa-chevron-left" aria-hidden="true"></i>');
+    const header = $("<header></header>"),
+        title = $("<h1>GAS FINDER</h1>"),
+        icon = $('<i class="fa fa-chevron-left"></i>'),
+        prevIcon = $('<a class="prevIcon" href="#"></a>');
 
-  header.append(title);
+    prevIcon.hide();
+    prevIcon.append(icon);
+    header.append(prevIcon);
+    header.append(title);
 
-  return header;
-}
+    prevIcon.on('click', (e) => {
+        e.preventDefault();
+        state.selectedStation = null;
+        update();
+    });
+    
+    return header;
+};

@@ -1,19 +1,21 @@
 * {
-  margin:0px;
-  padding:0px;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    color: #fff;
 }
 
 header {
-  color: #fff;
-  font-size: 18px;
-  height: 56px;
-  line-height: 56px;
-  padding-left: 16px;
-  background-color: #F44336;
+    background-color: #1a2538;
+    font-size: 1.2em;
+    width: 100%;
+    padding: 0.8em 1.8em;
 }
 
-header .fa-chevron-left {
-  margin-right: 16px;
+header h1 {
+    display: inline;
 }
